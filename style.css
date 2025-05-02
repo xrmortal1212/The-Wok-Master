@@ -137,9 +137,8 @@ body {
   transition: 0.3s;
 }
 .category-bar .cat-item:hover{
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
-
 .category-bar .cat-item i {
   font-size: 24px;
   margin-bottom: 8px;
