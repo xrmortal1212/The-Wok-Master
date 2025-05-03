@@ -235,7 +235,7 @@ const menus = {
         "name": "Beef Tawa Qeema",
         "description": "Spiced minced beef cooked on griddle",
         "price": 1900,
-        "image": "https://i.pinimg.com/736x/cb/73/e9/cb73e96e2898287f3a3c818e0411ed5c.jpg",
+        "image": "https://i.ytimg.com/vi/0rBC0zkhYzM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD1KOAhy9o27LTP2yT-VK2Y4fvkEg",
         "type": "Non-Veg"
       },
 
@@ -634,6 +634,113 @@ const menus = {
       }
     ]
   },
+  // Welcome Drinks Data
+  beverages: {
+    "category": "Welcome Drinks",
+    "items": [
+      {
+        "name": "Mint Lemonade Crush",
+        "type": "Welcome Drink",
+        "description": "Refreshing mint and lemon blend served in a grapefruit shell",
+        "price": " 350",
+        "image": "https://i.pinimg.com/736x/83/bf/b5/83bfb5668177fbc7e2660a08c80a25ee.jpg"
+      },
+      {
+        "name": "Strawberry Lemonade Crush",
+        "type": "Welcome Drink",
+        "description": "Sweet strawberry infused lemonade served chilled",
+        "price": " 400",
+        "image": "https://i.pinimg.com/736x/58/a5/2a/58a52a6ba71f59a10f4353bf8b849bd9.jpg"
+      },
+      {
+        "name": "Fresh Pomegranate Juice",
+        "type": "Juice",
+        "description": "100% pure pomegranate juice with no additives",
+        "price": " 450",
+        "image": "https://i.pinimg.com/736x/94/cf/ae/94cfae753df5a18765810b5608338fe3.jpg"
+      },
+      {
+        "name": "Peach Juice",
+        "type": "Juice",
+        "description": "Freshly squeezed peach nectar",
+        "price": " 400",
+        "image": "https://i.pinimg.com/736x/a4/5a/63/a45a63fb6915cf26a79cd9e23be324ee.jpg"
+      },
+      {
+        "name": "Coconut Milkshake",
+        "type": "Shake",
+        "description": "Creamy coconut shake served in coconut shell",
+        "price": " 500",
+        "image": "https://i.pinimg.com/736x/32/59/41/325941aed230a5c3d9a6bb53325af81d.jpg"
+      },
+      {
+        "name": "Pink Mint Lemonade",
+        "type": "Welcome Drink",
+        "description": "Rosy-hued mint lemonade with special herbs",
+        "price": " 400",
+        "image": "https://i.pinimg.com/736x/a1/7d/a8/a17da8cd6d6f0fa6df40d46796116187.jpg"
+      },
+      {
+        "name": "Tea & Coffee",
+        "type": "Hot Beverage",
+        "description": "Traditional karak chai and arabic coffee",
+        "price": " 200",
+        "image": "https://i.pinimg.com/736x/ae/70/df/ae70df8240fbfe842398aa089c6fb97d.jpg"
+      },
+      {
+        "name": "Mama Lime Thai Coconut Soup",
+        "type": "Soup Drink",
+        "description": "Aromatic Thai-inspired coconut soup served drinkable in shell",
+        "price": " 550",
+        "image": "https://www.allrecipes.com/thmb/kPvSC54TM7mio78ADIO3TBncrR4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/RM-146035-the-best-thai-coconut-soup-ddmfs-3x4-1741-96cd61c69f0b442392f629a0c65809b7.jpg"
+      },
+      {
+        "name": "Rabri Malai",
+        "type": "Dessert Drink",
+        "description": "Traditional thickened sweet milk dessert",
+        "price": " 300",
+        "image": "https://i.pinimg.com/736x/66/28/75/662875293d047fde33dd57ce14dc7afe.jpg"
+      }
+    ]
+  },
+  // Mini Sandwiches Data
+  sandwiches: {
+    "category": "Sandwiches",
+    "items": [
+      {
+        "name": "Mini Croissant Sandwich",
+        "description": "Delicate croissant filled with assorted fillings",
+        "category": "Mini Sandwich",
+        "type": "Veg/Non-Veg",
+        "price": 250,
+        "image": "https://i.pinimg.com/736x/cd/83/fe/cd83feee4a3e89aec5e9f65fa7a8fcf4.jpg"
+      },
+      {
+        "name": "Chicken Club Sandwich",
+        "description": "Layered sandwich with chicken, bacon, lettuce, and mayo",
+        "category": "Classic Sandwich",
+        "type": "Non-Veg",
+        "price": 350,
+        "image": "https://i.pinimg.com/736x/df/73/bd/df73bde1e590302315682e2f7b4a4726.jpg"
+      },
+      {
+        "name": "Mini Crispy Burger Sliders",
+        "description": "Small beef or chicken burgers with crispy patties",
+        "category": "Burger Sliders",
+        "type": "Non-Veg",
+        "price": 300,
+        "image": "https://stpierrebakery-com.s3.amazonaws.com/app/uploads/2021/06/Mini_Cheese_Burgers-SB.jpg"
+      },
+      {
+        "name": "Bun Kabab (Burns Road Style)",
+        "description": "Street-style spiced kabab served in fresh buns",
+        "category": "Street Food",
+        "type": "Non-Veg",
+        "price": 200,
+        "image": "https://i.pinimg.com/736x/0c/fd/d9/0cfdd9afcf906fcc19f673f3b7bd4e14.jpg"
+      }
+    ]
+  },
 };
 
 
@@ -649,7 +756,7 @@ function renderMenu(menuType) {
     col.className = "col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-4";
 
     col.innerHTML = `
-          <div class="card h-100" style="border-radius: 20px;">
+          <div class="card h-100 bg-light" style="border-radius: 20px;">
               <div class="card-body p-2">
                   <img src="${item.image}" class="card-img-top" style="border-radius: 15px; height: 250px; object-fit: cover;" alt="${item.name}">
                   <h5 class="card-title mt-2">${item.name}</h5>
@@ -660,7 +767,7 @@ function renderMenu(menuType) {
                   </div>
               </div>
               <div class="card-footer bg-transparent border-0 pb-2">
-                  <button class="btn btn-success w-100 add-to-cart-btn">
+                  <button class="btn btn-danger w-100 add-to-cart-btn">
                       Add To Cart
                   </button>
                   <div class="quantity-controls d-none d-flex justify-content-between align-items-center mt-2">
@@ -804,6 +911,101 @@ document.getElementById('appetizers').addEventListener('click', function () {
   renderMenu('appetizers');
 });
 
+document.getElementById('beverages').addEventListener('click', function () {
+  document.querySelectorAll('.cat-item').forEach(item => {
+    item.classList.remove('active');
+  });
 
+  this.classList.add('active');
+  renderMenu('beverages');
+});
+
+document.getElementById('sandwiches').addEventListener('click', function () {
+  document.querySelectorAll('.cat-item').forEach(item => {
+    item.classList.remove('active');
+  });
+
+  this.classList.add('active');
+  renderMenu('sandwiches');
+});
 // Initial render
 renderMenu('breakfast');
+
+// Search functionality
+const searchInput = document.querySelector('input[type="text"]');
+searchInput.addEventListener('input', function() {
+  const searchTerm = this.value.toLowerCase();
+  
+  if (searchTerm.length < 2) {
+    // If search term is too short, show the current category
+    const activeCategory = document.querySelector('.cat-item.active');
+    if (activeCategory) {
+      const categoryId = activeCategory.id;
+      renderMenu(categoryId);
+    }
+    return;
+  }
+  
+  // Search across all categories
+  searchAllMenus(searchTerm);
+});
+
+function searchAllMenus(searchTerm) {
+  const menuContainer = document.getElementById("menu-cards");
+  menuContainer.innerHTML = ''; // Clear existing content
+  
+  let foundItems = false;
+  
+  // Loop through all menu categories
+  for (const menuType in menus) {
+    const menuData = menus[menuType];
+    
+    // Filter items that match the search term
+    const matchingItems = menuData.items.filter(item => 
+      item.name.toLowerCase().includes(searchTerm) || 
+      item.description.toLowerCase().includes(searchTerm)
+    );
+    
+    // Display matching items
+    matchingItems.forEach(item => {
+      foundItems = true;
+      const col = document.createElement("div");
+      col.className = "col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-4";
+
+      col.innerHTML = `
+        <div class="card h-100 bg-light" style="border-radius: 20px;">
+          <div class="card-body p-2">
+            <img src="${item.image}" class="card-img-top" style="border-radius: 15px; height: 250px; object-fit: cover;" alt="${item.name}">
+            <h5 class="card-title mt-2">${item.name}</h5>
+            <p class="card-text text-muted small">${item.description}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-success fw-bold">₹${item.price}</span>
+              <span class="badge ${item.type === 'Veg' ? 'bg-success' : 'bg-danger'}">${item.type}</span>
+            </div>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-2">
+            <button class="btn btn-danger w-100 add-to-cart-btn">
+              Add To Cart
+            </button>
+            <div class="quantity-controls d-none d-flex justify-content-between align-items-center mt-2">
+              <button class="btn btn-sm btn-outline-secondary decrease-qty">-</button>
+              <span class="quantity">1</span>
+              <button class="btn btn-sm btn-outline-secondary increase-qty">+</button>
+            </div>
+          </div>
+        </div>
+      `;
+      menuContainer.appendChild(col);
+    });
+  }
+  
+  if (!foundItems) {
+    menuContainer.innerHTML = `
+      <div class="col-12 text-center py-5">
+        <h4 class="text-dark">No items found matching "${searchTerm}"</h4>
+      </div>
+    `;
+  }
+  
+  setupCartButtons();
+}

@@ -13,13 +13,13 @@
 
 </head>
 
-<body style="background-color: #a3c2c2;" class="container-fluid">
+<body class="container-fluid">
   <div class="outer">
     <div class="container-fluid">
       <div class="col-md-12">
         <div class="row">
           <!-- Sidebar (2 columns) -->
-          <div class="col-md-2 sidebar">
+          <div class="col-md-2 sidebar bg-light">
             <div class="logo">
               <img src="./Images/cover.png" alt="Logo" class="logo-img img-fluid">
               <h4>The Wok Master</h4>
@@ -31,7 +31,7 @@
               <a href="#" style="text-decoration: none;" class="link">📊 Accounting</a>
               <a href="#" style="text-decoration: none;" class="link">⚙️ Settings</a>
             </div>
-            <div class="profile-card">
+            <div class="profile-card d-none">
               <img src="./Images/pfp.jpg" alt="Profile" class="profile-img">
               <div class="profile-name">Raman</div>
             </div>
@@ -41,30 +41,18 @@
           <div class="col-md-10">
             <div class="mt-4">
               <!-- Top Search Bar with Hamburger Filter -->
-              <div class="top-bar d-flex justify-content-between align-items-center">
-                <div class="dropdown">
-                  <button class="btn btn-success dropdown-toggle" type="button" id="filterMenu" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    ☰ Filter
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="filterMenu">
-                    <a class="dropdown-item" href="#">🆕 New</a>
-                    <a class="dropdown-item" href="#">🔥 Popular</a>
-                    <a class="dropdown-item" href="#">🏆 Best Selling</a>
-                    <a class="dropdown-item" href="#">💲 High Price</a>
-                    <a class="dropdown-item" href="#">🔻 Low Price</a>
-                  </div>
-                </div>
+              <div class="top-bar d-flex justify-content-between   align-items-center">
+                
 
-                <input type="text" placeholder="Search Product here..." class="form-control mx-3"
-                  style="max-width: 400px;">
+                <input type="text" placeholder="Search Product here..." class="form-control mx-3 justify-content-center text-center "
+                  style="max-width: 100%;">
                 <!-- Add this cart icon to your navbar/top bar -->
-                <i class="fas fa-shopping-cart fa-lg" style="cursor: pointer;" id="cartIcon"></i>
+                <i class="fas fa-shopping-cart fa-lg justify-content-left" style="cursor: pointer;" id="cartIcon"></i>
 
               </div>
 
               <!-- Category Bar -->
-              <div class="category-bar">
+              <div class="category-bar justify-content-center">
                 <div id="breakfast" class="cat-item active">
                   <i class="fas fa-mug-hot"></i>
                   <span>Breakfast</span>
@@ -105,21 +93,13 @@
                   <i class="fas fa-cheese"></i>
                   <span>Appetizers</span>
                 </div>
-                <div class="cat-item">
+                <div id="beverages" class="cat-item">
                   <i class="fas fa-glass-whiskey"></i>
                   <span>Beverages</span>
                 </div>
-                <div class="cat-item">
+                <div id="sandwiches" class="cat-item">
                   <i class="fas fa-bread-slice"></i>
                   <span>Sandwiches</span>
-                </div>
-                <div class="cat-item">
-                  <i class="fas fa-egg"></i>
-                  <span>Vegetarian</span>
-                </div>
-                <div class="cat-item">
-                  <i class="fas fa-pepper-hot"></i>
-                  <span>Spicy Specials</span>
                 </div>
               </div>
               <!-- Food Items -->
@@ -128,105 +108,105 @@
                   <div id="menu-cards" class="row g-3">
 
                   </div>
-                  
 
 
 
+
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Modal Structure -->
-      <div class="modal fade" id="orderSummaryModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <!-- Your existing order summary content -->
-            <div style="border-radius: 50px;" class="modal-body bg-light p-3">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h4 class="m-0">Table 4</h4>
-                <span class="badge bg-success">Flexed Mins</span>
-              </div>
-
-              <div class="d-flex justify-content-between mb-3">
-                <div class="btn-group btn-group-sm w-100" role="group">
-                  <button type="button" class="btn btn-outline-success active">Dine In</button>
-                  <button type="button" class="btn btn-outline-success">Take Away</button>
-                  <button type="button" class="btn btn-outline-success">Delivery</button>
+        <!-- Modal Structure -->
+        <div class="modal fade" id="orderSummaryModal" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <!-- Your existing order summary content -->
+              <div style="border-radius: 50px;" class="modal-body bg-light p-3">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4 class="m-0">Table 4</h4>
+                  <span class="badge bg-success">Flexed Mins</span>
                 </div>
-              </div>
 
-              <div class="order-items mb-3" style="max-height: 300px; overflow-y: auto;">
-                <!-- Order Item 1 -->
-                <div class="order-item mb-2 pb-2 border-bottom">
-                  <div class="d-flex justify-content-between align-items-start">
-                    <h6 class="mb-1 flex-grow-1">Original Chess Meet Burger With Chips (Non Veg)</h6>
-                    <span class="text-danger ms-2">$23.99</span>
-                    <button class="btn btn-sm btn-outline-danger ms-2">×</button>
+                <div class="d-flex justify-content-between mb-3">
+                  <div class="btn-group btn-group-sm w-100" role="group">
+                    <button type="button" class="btn btn-outline-success active">Dine In</button>
+                    <button type="button" class="btn btn-outline-success">Take Away</button>
+                    <button type="button" class="btn btn-outline-success">Delivery</button>
                   </div>
-                  <div class="d-flex justify-content-between text-muted mt-1">
-                    <div class="quantity-controls">
-                      <button class="btn btn-sm btn-outline-secondary p-0 px-2">-</button>
-                      <span class="mx-2">1</span>
-                      <button class="btn btn-sm btn-outline-secondary p-0 px-2">+</button>
+                </div>
+
+                <div class="order-items mb-3" style="max-height: 300px; overflow-y: auto;">
+                  <!-- Order Item 1 -->
+                  <div class="order-item mb-2 pb-2 border-bottom">
+                    <div class="d-flex justify-content-between align-items-start">
+                      <h6 class="mb-1 flex-grow-1">Original Chess Meet Burger With Chips (Non Veg)</h6>
+                      <span class="text-danger ms-2">$23.99</span>
+                      <button class="btn btn-sm btn-outline-danger ms-2">×</button>
                     </div>
-                    <small>Dine In</small>
+                    <div class="d-flex justify-content-between text-muted mt-1">
+                      <div class="quantity-controls">
+                        <button class="btn btn-sm btn-outline-secondary p-0 px-2">-</button>
+                        <span class="mx-2">1</span>
+                        <button class="btn btn-sm btn-outline-secondary p-0 px-2">+</button>
+                      </div>
+                      <small>Dine In</small>
+                    </div>
+                  </div>
+                  <!-- Other order items... -->
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary mb-3 border-top pt-2">
+                  <div class="d-flex justify-content-between mb-1">
+                    <span>Sub Total</span>
+                    <span>$61.96</span>
+                  </div>
+                  <div class="d-flex justify-content-between mb-1">
+                    <span>Tax 5%</span>
+                    <span>$1.75</span>
+                  </div>
+                  <div class="d-flex justify-content-between fw-bold fs-5 mt-2">
+                    <span>Total Amount</span>
+                    <span>$63.71</span>
                   </div>
                 </div>
-                <!-- Other order items... -->
+
+                <!-- Payment Options -->
+                <div class="payment-options mb-3 border-top pt-2">
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="payment" id="cash" checked>
+                    <label class="form-check-label d-flex align-items-center" for="cash">
+                      <i class="fas fa-money-bill-wave me-2"></i>Cash
+                    </label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="payment" id="card">
+                    <label class="form-check-label d-flex align-items-center" for="card">
+                      <i class="far fa-credit-card me-2"></i>Credit/Debit Card
+                    </label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="payment" id="qr">
+                    <label class="form-check-label d-flex align-items-center" for="qr">
+                      <i class="fas fa-qrcode me-2"></i>EasyPaisa
+                    </label>
+                  </div>
+                </div>
               </div>
 
-              <!-- Order Summary -->
-              <div class="order-summary mb-3 border-top pt-2">
-                <div class="d-flex justify-content-between mb-1">
-                  <span>Sub Total</span>
-                  <span>$61.96</span>
-                </div>
-                <div class="d-flex justify-content-between mb-1">
-                  <span>Tax 5%</span>
-                  <span>$1.75</span>
-                </div>
-                <div class="d-flex justify-content-between fw-bold fs-5 mt-2">
-                  <span>Total Amount</span>
-                  <span>$63.71</span>
-                </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-success py-2 fw-bold">
+                  <i class="fas fa-paper-plane me-2"></i>Place Order
+                </button>
               </div>
-
-              <!-- Payment Options -->
-              <div class="payment-options mb-3 border-top pt-2">
-                <div class="form-check mb-2">
-                  <input class="form-check-input" type="radio" name="payment" id="cash" checked>
-                  <label class="form-check-label d-flex align-items-center" for="cash">
-                    <i class="fas fa-money-bill-wave me-2"></i>Cash
-                  </label>
-                </div>
-                <div class="form-check mb-2">
-                  <input class="form-check-input" type="radio" name="payment" id="card">
-                  <label class="form-check-label d-flex align-items-center" for="card">
-                    <i class="far fa-credit-card me-2"></i>Credit/Debit Card
-                  </label>
-                </div>
-                <div class="form-check mb-2">
-                  <input class="form-check-input" type="radio" name="payment" id="qr">
-                  <label class="form-check-label d-flex align-items-center" for="qr">
-                    <i class="fas fa-qrcode me-2"></i>EasyPaisa
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button class="btn btn-success py-2 fw-bold">
-                <i class="fas fa-paper-plane me-2"></i>Place Order
-              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
   </div>
   </div>
