@@ -372,7 +372,7 @@ const menus = {
       {
         "name": "Apple Pie with Vanilla Ice Cream",
         "description": "Classic apple pie topped with vanilla ice cream and caramel sauce",
-        "price": 350, 
+        "price": 350,
         "type": "Veg",
         "image": "https://i.pinimg.com/736x/c3/98/36/c39836bfb37642d8b159bbff63aef02c.jpg"
       },
@@ -393,14 +393,14 @@ const menus = {
       {
         "name": "Stick Kulfi",
         "description": "Traditional Indian ice cream on stick in various flavors",
-             "price": 120,
+        "price": 120,
         "type": "Veg",
         "image": "https://i.pinimg.com/736x/d3/7a/2e/d37a2eb59cb489298b59d1a4de2d10e3.jpg"
       },
       {
         "name": "Deep Fried Ice-cream",
         "description": "Crispy fried ice cream with chocolate sauce",
-              "price": 280,
+        "price": 280,
         "type": "Veg",
         "image": "https://i.pinimg.com/736x/2f/de/fc/2fdefc5016b83a6d55d0f66d20aaa984.jpg"
       },
@@ -424,6 +424,213 @@ const menus = {
         "price": 180,
         "type": "Veg",
         "image": "https://i.pinimg.com/736x/58/d0/ee/58d0ee20230696987b7fce4a3e56f479.jpg"
+      }
+    ]
+  },
+  // Seafood Specials Data
+  seafood: {
+    "category": "Seafood Specials",
+    "items": [
+      {
+        "name": "Jumbo Prawn Tempura",
+        "description": "Crispy fried giant prawns with dipping sauce",
+        "price": 1200,
+        "type": "Non-Veg",
+        "image": "https://i.pinimg.com/736x/e0/e5/f2/e0e5f22add68a60b38918ab49bfde8bb.jpg"
+      },
+      {
+        "name": "Grilled Tandoori Prawn",
+        "description": "Jumbo prawns marinated in tandoori spices and grilled",
+        "price": 1400,
+        "type": "Non-Veg",
+        "image": "https://i.pinimg.com/736x/d6/62/fe/d662fedbe7d70f11b642e4e641913ec0.jpg"
+      },
+      {
+        "name": "Pat Pet Prawn with Basil and Baby Corn",
+        "description": "Spicy Thai-style stir-fried prawns",
+        "price": 1300,
+        "type": "Non-Veg",
+        "image": "https://i.pinimg.com/736x/95/7a/6f/957a6f977d5876363ebc644516819f46.jpg"
+      },
+      {
+        "name": "Char Coal Spicy Fish",
+        "description": "Whole fish grilled with spicy marinade",
+        "price": 1100,
+        "type": "Non-Veg",
+        "image": "https://i.pinimg.com/736x/4c/da/31/4cda31de8e06a69b2ce8455d6c0ced60.jpg"
+      },
+      {
+        "name": "Fish Wrapped in Banana Leaf",
+        "description": "Steamed fish with herbs in banana leaf",
+        "price": 1250,
+        "type": "Non-Veg",
+        "image": "https://i.pinimg.com/736x/15/3d/ea/153deaa32c5747c79e053d6a48c83995.jpg"
+      },
+      {
+        "name": "Whole Baked Red Snapper Fish Tamarind Sauce",
+        "description": "Oven-baked snapper with tangy tamarind glaze",
+        "price": 1800,
+        "type": "Non-Veg",
+        "image": "https://i.pinimg.com/736x/91/c2/6b/91c26bd40dc0a5e5d058991518feccff.jpg"
+      },
+      {
+        "name": "Dynamite Prawn",
+        "description": "Crispy prawns with spicy mayo in elegant presentation",
+        "price": 950,
+        "type": "Non-Veg",
+        "image": "https://i.pinimg.com/736x/18/34/9f/18349f67ab8250ab1fed46ae95138431.jpg"
+      },
+      {
+        "name": "Prawn Gambas",
+        "description": "Spanish-style garlic prawns in olive oil",
+        "price": 1050,
+        "type": "Non-Veg",
+        "image": "https://i.pinimg.com/736x/40/95/11/409511727e06979d72903a757a1a43a3.jpg"
+      },
+      {
+        "name": "Assorted Sushi and Sashimi Platter",
+        "description": "Fresh raw fish and seafood with wasabi and soy",
+        "price": 1600,
+        "type": "Non-Veg",
+        "image": "https://i.pinimg.com/736x/31/08/ca/3108cae022ffc867357c1be9311cb543.jpg"
+      }
+    ]
+  },
+  // Salads Data
+  salads: {
+    "category": "Salads",
+    "items": [
+      {
+        "name": "Wolderf Walnut Salad",
+        "description": "Fresh greens with walnuts, served in melon bowl",
+        "price": 350,
+        "type": "Veg",
+        "image": "https://i.pinimg.com/736x/34/fc/63/34fc63c2ed9d2276b3e15a87a27d23b4.jpg"
+      },
+      {
+        "name": "Futtosh Salad",
+        "description": "Middle Eastern bread salad with vegetables",
+        "price": 300,
+        "type": "Veg",
+        "image": "https://i.pinimg.com/736x/e1/e1/e9/e1e1e94d7e37b9ada516b2969800c9a3.jpg"
+      },
+      {
+        "name": "Ceaser Salad with Crouton and Chicken",
+        "description": "Classic Caesar with grilled chicken and parmesan",
+        "price": 400,
+        "type": "Non-Veg",
+        "image": "https://i.pinimg.com/736x/f8/e4/b3/f8e4b3ae3af7486de9b264af514e80ad.jpg"
+      },
+      {
+        "name": "Greek Salad with Feta Cheese",
+        "description": "Cucumber, tomatoes, olives and feta cheese",
+        "price": 380,
+        "type": "Veg",
+        "image": "https://i.pinimg.com/736x/7e/36/ed/7e36edbc89a77dc8e5fb14e7454faeb9.jpg"
+      }
+    ]
+  },
+  // Appetizers Data
+  appetizers: {
+    "category": "Appetizers",
+    "items": [
+      {
+        "name": "Dynamite Chicken",
+        "type": "Non-Veg",
+        "description": "Crispy chicken tossed in a spicy mayo sauce, served in a martini glass.",
+        "price": "450",
+        "image": "https://i.pinimg.com/736x/18/34/9f/18349f67ab8250ab1fed46ae95138431.jpg"
+      },
+      {
+        "name": "Dynamite Prawn",
+        "type": "Non-Veg",
+        "description": "Spicy prawn bites in creamy sauce, served in a martini or orange glass.",
+        "price": 950,
+        "image": "https://i.pinimg.com/736x/6d/a2/bd/6da2bde0d4deac64e5af9f27415587cc.jpg"
+      },
+      {
+        "name": "Peri Bites with Tartar Sauce",
+        "type": "Non-Veg",
+        "description": "Stuffed peri bites served with tangy tartar dip.",
+        "price": "300",
+        "image": "https://i.pinimg.com/736x/bb/b5/7b/bbb57b3feca164402ab873a4ab219156.jpg"
+      },
+      {
+        "name": "Cheese Ball",
+        "type": "Non-Veg",
+        "description": "Crispy chicken cheese balls served hot with dip.",
+        "price": "350",
+        "image": "https://i.pinimg.com/736x/77/93/a7/7793a74dfd917a3f3fc84f23d2e62e05.jpg"
+      },
+      {
+        "name": "Chicken Cheese Spring Rolls",
+        "type": "Non-Veg",
+        "description": "Golden fried spring rolls stuffed with chicken and cheese.",
+        "price": "320",
+        "image": "https://i.pinimg.com/736x/22/94/33/229433258830d730d01c714c8a12c52c.jpg"
+      },
+      {
+        "name": "Chicken Stripes with Honey Mustard Sauce",
+        "type": "Non-Veg",
+        "description": "Crispy chicken strips served with honey mustard sauce.",
+        "price": "330",
+        "image": "https://i.pinimg.com/736x/1c/9b/7e/1c9b7ec04bb195ca6c519a480dccada5.jpg"
+      },
+      {
+        "name": "Paneer Skewers with Peri Peri Sauce",
+        "type": "Veg",
+        "description": "Grilled paneer skewers glazed with peri peri sauce.",
+        "price": "300",
+        "image": "https://i.pinimg.com/736x/49/e5/80/49e5800ada1c3a59021e2c84bf91c457.jpg"
+      },
+      {
+        "name": "Paneer Skewers with Bearnaise Sauce",
+        "type": "Veg",
+        "description": "Soft paneer cubes grilled and served with creamy bearnaise sauce.",
+        "price": "320",
+        "image": "https://i.pinimg.com/736x/26/98/08/2698082467d65ed0a59c99f81cea26ff.jpg"
+      },
+      {
+        "name": "Fried Momos with Sweet Chilli Dip",
+        "type": "Veg",
+        "description": "Crispy dumplings filled with veggies, served with sweet chili dip.",
+        "price": "280",
+        "image": "https://i.pinimg.com/736x/e6/84/13/e6841381142b18e42d8c094636a3b380.jpg"
+      },
+      {
+        "name": "Wasabi Prawns",
+        "type": "Non-Veg",
+        "description": "Crispy prawns coated in wasabi mayo, served in an orange shell.",
+        "price": "580",
+        "image": "https://i.pinimg.com/736x/39/3d/71/393d711153c1d048842ed5f1497ffc2a.jpg"
+      },
+      {
+        "name": "Prawn in Phyllo Paste",
+        "type": "Non-Veg",
+        "description": "Delicate prawns wrapped in crispy phyllo, served in orange shell.",
+        "price": "600",
+        "image": "https://cookniche.com/Members/Images/photos/170804-055141-1MichelderGaspard.JPG"
+      },
+      {
+        "name": "Prawn Gambas",
+        "type": "Non-Veg",
+        "description": "Spanish-style sizzling prawns sautéed in garlic and olive oil.",
+        "price": "620",
+        "image": "https://www.themediterraneandish.com/wp-content/uploads/2020/11/gambas-al-ajillo-spanish-shrimp-recipe-9.jpg"
+      },
+      {
+        "name": "Chicken Roulade",
+        "type": "Non-Veg",
+        "description": "Stuffed chicken breast roll, seasoned and grilled to perfection.",
+        "price": "480",
+        "image": "https://thecozycook.com/wp-content/uploads/2024/01/Chicken-Roulade-1-1.jpg"
+      },
+      {
+        "name": "Beef Nigimiyaki",
+        "type": "Non-Veg",
+        "description": "Japanese grilled beef rolls with scallions.",
+        "price": "550",
+        "image": "https://www.seriouseats.com/thmb/VCXOFDvIBtyA6SIvdjIEOKZe508=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__20110215-138071-negimaki-75fe9fc2351f42718b24f495bedae4e7.jpg"
       }
     ]
   },
@@ -569,5 +776,34 @@ document.getElementById('desserts').addEventListener('click', function () {
   this.classList.add('active');
   renderMenu('desserts');
 });
+
+document.getElementById('seafood').addEventListener('click', function () {
+  document.querySelectorAll('.cat-item').forEach(item => {
+    item.classList.remove('active');
+  });
+
+  this.classList.add('active');
+  renderMenu('seafood');
+});
+
+document.getElementById('salads').addEventListener('click', function () {
+  document.querySelectorAll('.cat-item').forEach(item => {
+    item.classList.remove('active');
+  });
+
+  this.classList.add('active');
+  renderMenu('salads');
+});
+
+document.getElementById('appetizers').addEventListener('click', function () {
+  document.querySelectorAll('.cat-item').forEach(item => {
+    item.classList.remove('active');
+  });
+
+  this.classList.add('active');
+  renderMenu('appetizers');
+});
+
+
 // Initial render
 renderMenu('breakfast');
