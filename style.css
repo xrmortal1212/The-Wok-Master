@@ -3,8 +3,8 @@
 }
 
 body {
-  background: linear-gradient(#225b87, #2f7fbc);
-}
+  /* background: linear-gradient(#225b87, #2f7fbc);
+} */
 
 .outer {
   border: 1px solid #0000007c;
@@ -248,6 +248,18 @@ body {
 }
 
 .btn {
-  background-color: red;
+  background-color: #b71c1c;
+  color: white;
   border: none;
+}
+
+#cartIcon {
+  position: relative;
+}
+
+#cartItemCount {
+  font-size: 0.6em;
+  text-align: center;
+  top: -100px;
+  right: -20px;
 }

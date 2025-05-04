@@ -767,15 +767,10 @@ function renderMenu(menuType) {
                   </div>
               </div>
               <div class="card-footer bg-transparent border-0 pb-2">
-                  <button class="btn btn-danger w-100 add-to-cart-btn">
+                  <button style="border-radius:20px;" class="btn btn-danger w-100 add-to-cart-btn">
                       Add To Cart
                   </button>
-                  <div class="quantity-controls d-none d-flex justify-content-between align-items-center mt-2">
-                      <button class="btn btn-sm btn-outline-secondary decrease-qty">-</button>
-                      <span class="quantity">1</span>
-                      <button class="btn btn-sm btn-outline-secondary increase-qty">+</button>
-                  </div>
-              </div>
+                                </div>
           </div>
       `;
     menuContainer.appendChild(col);
@@ -933,9 +928,9 @@ renderMenu('breakfast');
 
 // Search functionality
 const searchInput = document.querySelector('input[type="text"]');
-searchInput.addEventListener('input', function() {
+searchInput.addEventListener('input', function () {
   const searchTerm = this.value.toLowerCase();
-  
+
   if (searchTerm.length < 2) {
     // If search term is too short, show the current category
     const activeCategory = document.querySelector('.cat-item.active');
@@ -945,7 +940,7 @@ searchInput.addEventListener('input', function() {
     }
     return;
   }
-  
+
   // Search across all categories
   searchAllMenus(searchTerm);
 });
@@ -953,19 +948,19 @@ searchInput.addEventListener('input', function() {
 function searchAllMenus(searchTerm) {
   const menuContainer = document.getElementById("menu-cards");
   menuContainer.innerHTML = ''; // Clear existing content
-  
+
   let foundItems = false;
-  
+
   // Loop through all menu categories
   for (const menuType in menus) {
     const menuData = menus[menuType];
-    
+
     // Filter items that match the search term
-    const matchingItems = menuData.items.filter(item => 
-      item.name.toLowerCase().includes(searchTerm) || 
+    const matchingItems = menuData.items.filter(item =>
+      item.name.toLowerCase().includes(searchTerm) ||
       item.description.toLowerCase().includes(searchTerm)
     );
-    
+
     // Display matching items
     matchingItems.forEach(item => {
       foundItems = true;
@@ -984,21 +979,17 @@ function searchAllMenus(searchTerm) {
             </div>
           </div>
           <div class="card-footer bg-transparent border-0 pb-2">
-            <button class="btn btn-danger w-100 add-to-cart-btn">
+            <button style="border-radius:20px;" class="btn btn-danger w-100 add-to-cart-btn">
               Add To Cart
             </button>
-            <div class="quantity-controls d-none d-flex justify-content-between align-items-center mt-2">
-              <button class="btn btn-sm btn-outline-secondary decrease-qty">-</button>
-              <span class="quantity">1</span>
-              <button class="btn btn-sm btn-outline-secondary increase-qty">+</button>
-            </div>
+           
           </div>
         </div>
       `;
       menuContainer.appendChild(col);
     });
   }
-  
+
   if (!foundItems) {
     menuContainer.innerHTML = `
       <div class="col-12 text-center py-5">
@@ -1006,6 +997,252 @@ function searchAllMenus(searchTerm) {
       </div>
     `;
   }
-  
+
   setupCartButtons();
+}
+
+// Cart functionality
+let cart = {
+  items: [],
+  subtotal: 0,
+  tax: 0,
+  total: 0
+};
+
+// Function to add item to cart
+function addToCart(item, quantity) {
+  // Check if item already exists in cart
+  const existingItem = cart.items.find(cartItem => cartItem.name === item.name);
+
+  if (existingItem) {
+    existingItem.quantity += quantity;
+  } else {
+    cart.items.push({
+      ...item,
+      quantity: quantity,
+      orderType: 'Dine In' // Default order type
+    });
+  }
+
+  updateCart();
+  updateOrderSummaryModal();
+}
+
+// Function to update cart totals
+function updateCart() {
+  cart.subtotal = cart.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  cart.tax = cart.subtotal * 0.05; // 5% tax
+  cart.total = cart.subtotal + cart.tax;
+}
+
+// Function to update the order summary modal
+function updateOrderSummaryModal() {
+  const orderItemsContainer = document.querySelector('.order-items');
+  orderItemsContainer.innerHTML = '';
+
+  cart.items.forEach(item => {
+    const orderItem = document.createElement('div');
+    orderItem.className = 'order-item mb-2 pb-2 border-bottom';
+    orderItem.innerHTML = `
+      <div class="d-flex justify-content-between align-items-start">
+        <h6 class="mb-1 flex-grow-1">${item.name} (${item.type})</h6>
+        <span class="text-danger ms-2">$${(item.price * item.quantity).toFixed(2)}</span>
+        <button class="btn btn-sm btn-outline-danger ms-2 remove-item" data-name="${item.name}">×</button>
+      </div>
+      <div class="d-flex justify-content-between text-muted mt-1">
+        <div class="quantity-controls">
+          <button class="btn btn-sm btn-outline-secondary p-0 px-2 decrease-item" data-name="${item.name}">-</button>
+          <span class="mx-2">${item.quantity}</span>
+          <button class="btn btn-sm btn-outline-secondary p-0 px-2 increase-item" data-name="${item.name}">+</button>
+        </div>
+        <small>${item.orderType}</small>
+      </div>
+    `;
+    orderItemsContainer.appendChild(orderItem);
+  });
+
+  // Update summary totals
+  document.querySelector('.order-summary .d-flex:first-child span:last-child').textContent = `$${cart.subtotal.toFixed(2)}`;
+  document.querySelector('.order-summary .d-flex:nth-child(2) span:last-child').textContent = `$${cart.tax.toFixed(2)}`;
+  document.querySelector('.order-summary .fw-bold span:last-child').textContent = `$${cart.total.toFixed(2)}`;
+
+  // Add event listeners for quantity controls in modal
+  setupModalQuantityControls();
+}
+
+// Function to setup quantity controls in modal
+function setupModalQuantityControls() {
+  // Increase quantity
+  document.querySelectorAll('.increase-item').forEach(button => {
+    button.addEventListener('click', function () {
+      const itemName = this.getAttribute('data-name');
+      const item = cart.items.find(item => item.name === itemName);
+      if (item) {
+        item.quantity++;
+        updateCart();
+        updateOrderSummaryModal();
+      }
+    });
+  });
+
+  // Decrease quantity
+  document.querySelectorAll('.decrease-item').forEach(button => {
+    button.addEventListener('click', function () {
+      const itemName = this.getAttribute('data-name');
+      const itemIndex = cart.items.findIndex(item => item.name === itemName);
+      if (itemIndex !== -1) {
+        const item = cart.items[itemIndex];
+        if (item.quantity > 1) {
+          item.quantity--;
+        } else {
+          cart.items.splice(itemIndex, 1);
+        }
+        updateCart();
+        updateOrderSummaryModal();
+      }
+    });
+  });
+
+  // Remove item
+  document.querySelectorAll('.remove-item').forEach(button => {
+    button.addEventListener('click', function () {
+      const itemName = this.getAttribute('data-name');
+      const itemIndex = cart.items.findIndex(item => item.name === itemName);
+      if (itemIndex !== -1) {
+        cart.items.splice(itemIndex, 1);
+        updateCart();
+        updateOrderSummaryModal();
+      }
+    });
+  });
+}
+
+// Modify the setupCartButtons function to add items to cart
+function setupCartButtons() {
+  document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+    button.addEventListener('click', function () {
+      const card = this.closest('.card');
+      const cardBody = card.querySelector('.card-body');
+
+      const item = {
+        name: cardBody.querySelector('.card-title').textContent,
+        description: cardBody.querySelector('.card-text').textContent,
+        price: parseFloat(cardBody.querySelector('.text-success').textContent.replace('₹', '')),
+        type: cardBody.querySelector('.badge').textContent,
+        image: cardBody.querySelector('img').src
+      };
+
+      addToCart(item, 1);
+
+      const cardFooter = this.closest('.card-footer');
+      const quantityControls = cardFooter.querySelector('.quantity-controls');
+
+      this.classList.add('d-none');
+      quantityControls.classList.remove('d-none');
+    });
+  });
+
+  document.querySelectorAll('.increase-qty').forEach(button => {
+    button.addEventListener('click', function () {
+      const quantityElement = this.parentElement.querySelector('.quantity');
+      quantityElement.textContent = parseInt(quantityElement.textContent) + 1;
+    });
+  });
+
+  document.querySelectorAll('.decrease-qty').forEach(button => {
+    button.addEventListener('click', function () {
+      const quantityElement = this.parentElement.querySelector('.quantity');
+      const currentQuantity = parseInt(quantityElement.textContent);
+      if (currentQuantity > 1) {
+        quantityElement.textContent = currentQuantity - 1;
+      } else {
+        const cardFooter = this.closest('.card-footer');
+        const addButton = cardFooter.querySelector('.add-to-cart-btn');
+        const quantityControls = cardFooter.querySelector('.quantity-controls');
+
+        addButton.classList.remove('d-none');
+        quantityControls.classList.add('d-none');
+      }
+    });
+  });
+}
+
+// Add event listener for order type buttons
+document.querySelectorAll('.btn-group button').forEach(button => {
+  button.addEventListener('click', function () {
+    // Remove active class from all buttons
+    this.parentElement.querySelectorAll('button').forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+    // Add active class to clicked button
+    this.classList.add('active');
+
+    // Update order type for all items in cart
+    const orderType = this.textContent.trim();
+    cart.items.forEach(item => {
+      item.orderType = orderType;
+    });
+
+    updateOrderSummaryModal();
+  });
+});
+
+// Place order button functionality
+document.querySelector('.modal-footer .btn-success').addEventListener('click', function () {
+  if (cart.items.length === 0) {
+    alert('Your cart is empty!');
+    return;
+  }
+
+  // Here you would typically send the order to your backend
+  console.log('Order placed:', cart);
+  alert('Order placed successfully!');
+
+  // Clear the cart
+  cart = {
+    items: [],
+    subtotal: 0,
+    tax: 0,
+    total: 0
+  };
+
+  // Update modal and close it
+  updateOrderSummaryModal();
+  bootstrap.Modal.getInstance(document.getElementById('orderSummaryModal')).hide();
+
+  // Reset all add to cart buttons
+  document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+    button.classList.remove('d-none');
+  });
+  document.querySelectorAll('.quantity-controls').forEach(controls => {
+    controls.classList.add('d-none');
+  });
+});
+
+// Cart icon click handler
+document.getElementById('cartIcon').addEventListener('click', function () {
+  var myModal = new bootstrap.Modal(document.getElementById('orderSummaryModal'));
+  myModal.show();
+});
+
+// Function to update cart count display
+function updateCartCount() {
+  const cartCountElement = document.getElementById('cartItemCount');
+  const totalItems = cart.items.reduce((sum, item) => sum + item.quantity, 0);
+
+  if (totalItems > 0) {
+    cartCountElement.textContent = totalItems;
+    cartCountElement.style.display = 'block';
+  } else {
+    cartCountElement.style.display = 'none';
+  }
+}
+
+// Then modify your updateCart function to call this:
+function updateCart() {
+  cart.subtotal = cart.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  cart.tax = cart.subtotal * 0.05; // 5% tax
+  cart.total = cart.subtotal + cart.tax;
+  updateCartCount(); // Add this line
 }
