@@ -1020,7 +1020,7 @@ function addToCart(item, quantity) {
     cart.items.push({
       ...item,
       quantity: quantity,
-      orderType: 'Dine In' // Default order type
+      orderType: 'Take Away' // Default order type
     });
   }
 
