@@ -26,7 +26,6 @@ body {
   border-radius: 20px;
   padding: 20px 10px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  height: 96vh;
 }
 
 .logo {
@@ -102,6 +101,7 @@ body {
   text-align: center;
   color: #333;
 }
+
 
 .top-bar {
   background: #fff;
@@ -264,4 +264,98 @@ body {
   text-align: center;
   top: -100px;
   right: -20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .sidebar {
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .nav-links {
+    margin-bottom: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .link {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    font-size: 1.2rem;
+  }
+  
+  .logo-img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .category-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .cat-item {
+    margin-bottom: 10px;
+    padding: 15px 10px;
+    min-width: 120px;
+    font-size: 1rem;
+  }
+  
+  .food-items-container {
+    height: auto;
+    max-height: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo h4 {
+    font-size: 1.5rem;
+  }
+  
+  .link {
+    font-size: 1rem;
+    padding: 6px 10px;
+  }
+  
+  .cat-item {
+    min-width: 100px;
+    padding: 10px 5px;
+    font-size: 0.9rem;
+  }
+  
+  .cat-item i {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .outer {
+    padding: 5px;
+    margin: 5px;
+  }
+  
+  .logo-img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .top-bar {
+    padding: 10px;
+  }
+  
+  .cat-item {
+    min-width: 80px;
+    font-size: 0.8rem;
+    padding: 8px 3px;
+  }
+  
+  .cat-item i {
+    font-size: 16px;
+  }
+  
+  .food-card {
+    margin-bottom: 15px;
+  }
 }

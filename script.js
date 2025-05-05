@@ -1246,3 +1246,4 @@ function updateCart() {
   cart.total = cart.subtotal + cart.tax;
   updateCartCount(); // Add this line
 }
+
