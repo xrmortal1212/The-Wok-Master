@@ -756,9 +756,9 @@ function renderMenu(menuType) {
     col.className = "col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-4";
 
     col.innerHTML = `
-          <div class="card h-100 bg-light" style="border-radius: 20px;">
+          <div class="card h-100 hover-card" style="border-radius: 20px;">
               <div class="card-body p-2">
-                  <img src="${item.image}" class="card-img-top" style="border-radius: 15px; height: 250px; object-fit: cover;" alt="${item.name}">
+                  <img src="${item.image}" class="card-img-top card-img" style="border-radius: 15px; height: 250px; object-fit: cover;" alt="${item.name}">
                   <h5 class="card-title mt-2">${item.name}</h5>
                   <p class="card-text text-muted small">${item.description}</p>
                   <div class="d-flex justify-content-between align-items-center">
