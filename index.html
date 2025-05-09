@@ -19,11 +19,11 @@
     <div class="container-fluid">
       <div class="col-md-12">
         <div class="row">
-          
+
           <!-- Sidebar (2 columns) -->
-           
+
           <div class="col-md-2 sidebar bg-light">
-            
+
             <div class="logo">
               <img src="./Images/cover.png" alt="Logo" class="logo-img img-fluid">
               <h4>The Wok Master</h4>
@@ -71,8 +71,11 @@
                 <input type="text" placeholder="Search Product here..."
                   class="form-control mx-3 justify-content-center text-center " style="max-width: 100%;">
                 <!-- Add this cart icon to your navbar/top bar -->
-                <i class="fas fa-shopping-cart fa-lg justify-content-left" style="cursor: pointer; position: relative;" id="cartIcon">
-                  <span id="cartItemCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">
+                <i class="fas fa-shopping-cart fa-lg justify-content-left" style="cursor: pointer; position: relative;"
+                  id="cartIcon">
+                  <span id="cartItemCount"
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                    style="display: none;">
                     0
                   </span>
                 </i>
@@ -159,7 +162,7 @@
 
                 <div class="d-flex justify-content-between mb-3">
                   <div class="btn-group btn-group-sm w-100" role="group">
-                    
+
                     <button type="button" class="btn">Take Away</button>
                     <button type="button" class="btn">Delivery</button>
                   </div>
@@ -259,48 +262,48 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
   <!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<!-- Popper.js -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <!-- Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
   <script src="./script.js"></script>
   <script>
     // Hamburger menu functionality
-document.addEventListener('DOMContentLoaded', function() {
-  const burgerIcon = document.getElementById('burgerIcon');
-  const sidebar = document.getElementById('sidebar');
-  
-  burgerIcon.addEventListener('click', function() {
-    sidebar.classList.toggle('active');
-    
-    // Create overlay if it doesn't exist
-    let overlay = document.querySelector('.overlay');
-    if (!overlay) {
-      overlay = document.createElement('div');
-      overlay.className = 'overlay';
-      document.body.appendChild(overlay);
-    }
-    
-    if (sidebar.classList.contains('active')) {
-      overlay.style.display = 'block';
-      overlay.addEventListener('click', closeSidebar);
-    } else {
-      overlay.style.display = 'none';
-      overlay.removeEventListener('click', closeSidebar);
-    }
-  });
-  
-  function closeSidebar() {
-    sidebar.classList.remove('active');
-    document.querySelector('.overlay').style.display = 'none';
-  }
-  
-  // Close sidebar when a link is clicked
-  document.querySelectorAll('.nav-links .link').forEach(link => {
-    link.addEventListener('click', closeSidebar);
-  });
-});
+    document.addEventListener('DOMContentLoaded', function () {
+      const burgerIcon = document.getElementById('burgerIcon');
+      const sidebar = document.getElementById('sidebar');
+
+      burgerIcon.addEventListener('click', function () {
+        sidebar.classList.toggle('active');
+
+        // Create overlay if it doesn't exist
+        let overlay = document.querySelector('.overlay');
+        if (!overlay) {
+          overlay = document.createElement('div');
+          overlay.className = 'overlay';
+          document.body.appendChild(overlay);
+        }
+
+        if (sidebar.classList.contains('active')) {
+          overlay.style.display = 'block';
+          overlay.addEventListener('click', closeSidebar);
+        } else {
+          overlay.style.display = 'none';
+          overlay.removeEventListener('click', closeSidebar);
+        }
+      });
+
+      function closeSidebar() {
+        sidebar.classList.remove('active');
+        document.querySelector('.overlay').style.display = 'none';
+      }
+
+      // Close sidebar when a link is clicked
+      document.querySelectorAll('.nav-links .link').forEach(link => {
+        link.addEventListener('click', closeSidebar);
+      });
+    });
   </script>
 </body>
 

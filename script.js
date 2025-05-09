@@ -767,8 +767,8 @@ function renderMenu(menuType) {
                   </div>
               </div>
               <div class="card-footer bg-transparent border-0 pb-2">
-                  <button style="border-radius:20px;" class="btn btn-danger w-100 add-to-cart-btn">
-                      Add To Cart
+                  <button style="border-radius:20px;font-size:2rem;" class="btn btn-danger w-100 add-to-cart-btn">
+                      +
                   </button>
                                 </div>
           </div>
@@ -1246,4 +1246,3 @@ function updateCart() {
   cart.total = cart.subtotal + cart.tax;
   updateCartCount(); // Add this line
 }
-
