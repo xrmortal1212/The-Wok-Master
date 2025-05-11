@@ -491,3 +491,27 @@ body::-webkit-scrollbar {
       max-width: 100% !important;
     }
   }
+
+/* Hide extra categories by default */
+.hidden-category {
+  display: none;
+}
+
+/* Show the "Load More" button on smaller screens */
+@media (max-width: 992px) {
+  #loadMoreBtn {
+    display: block;
+    margin: 10px auto;
+    width: 150px;
+  }
+
+  .category-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .cat-item {
+    flex: 0 0 20%; /* Adjust width for better alignment */
+    margin-bottom: 10px;
+  }
+}

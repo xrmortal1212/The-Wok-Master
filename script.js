@@ -336,7 +336,13 @@ const menus = {
         "description": "Authentic pepperoni with extra cheese and herbs",
         "price": 850,
         "type": "Non-Veg",
-        "image": "https://i.pinimg.com/736x/64/0b/7f/640b7f4aa911b6ab1500faf9b7dae73d.jpg"
+        "image": "https://i.pinimg.com/736x/64/0b/7f/640b7f4aa911b6ab1500faf9b7dae73d.jpg",
+        "ingredients": ["Pepperoni", "Mozzarella Cheese", "Tomato Sauce", "Herbs"],
+        "sizes": [
+          { "name": "Small", "price": 650 },
+          { "name": "Medium", "price": 850 },
+          { "name": "Large", "price": 1050 }
+        ]
 
       },
       {
@@ -344,7 +350,13 @@ const menus = {
         "description": "Loaded with grilled veggies, jalapeños and fajita seasoning",
         "price": 700,
         "type": "Non-Veg",
-        "image": "https://i.pinimg.com/736x/94/17/a1/9417a1e77f97f58e812fdc5b3d198a50.jpg"
+        "image": "https://i.pinimg.com/736x/94/17/a1/9417a1e77f97f58e812fdc5b3d198a50.jpg",
+        "ingredients": ["Pepperoni", "Mozzarella Cheese", "Tomato Sauce", "Herbs"],
+        "sizes": [
+          { "name": "Small", "price": 650 },
+          { "name": "Medium", "price": 700 },
+          { "name": "Large", "price": 1050 }
+        ]
 
       },
       {
@@ -352,7 +364,13 @@ const menus = {
         "description": "Mozzarella, cheddar, parmesan and gouda cheese blend",
         "price": 800,
         "type": "Veg",
-        "image": "https://i.pinimg.com/736x/b8/d5/52/b8d5529811985454752e1e298b062fd3.jpg"
+        "image": "https://i.pinimg.com/736x/b8/d5/52/b8d5529811985454752e1e298b062fd3.jpg",
+        "ingredients": ["Pepperoni", "Mozzarella Cheese", "Tomato Sauce", "Herbs"],
+        "sizes": [
+          { "name": "Small", "price": 650 },
+          { "name": "Medium", "price": 800 },
+          { "name": "Large", "price": 1050 }
+        ]
 
       },
       {
@@ -360,7 +378,13 @@ const menus = {
         "description": "Combination of chicken tikka, pepperoni and fajita veggies",
         "price": 900,
         "type": "Non-Veg",
-        "image": "https://i.pinimg.com/736x/87/12/2f/87122f54dd2427aebb9fc4098c2010ce.jpg"
+        "image": "https://i.pinimg.com/736x/87/12/2f/87122f54dd2427aebb9fc4098c2010ce.jpg",
+        "ingredients": ["Pepperoni", "Mozzarella Cheese", "Tomato Sauce", "Herbs"],
+        "sizes": [
+          { "name": "Small", "price": 650 },
+          { "name": "Medium", "price": 900 },
+          { "name": "Large", "price": 1050 }
+        ]
 
       }
     ]
@@ -767,8 +791,8 @@ function renderMenu(menuType) {
                   </div>
               </div>
               <div class="card-footer bg-transparent border-0 pb-2">
-                  <button style="border-radius:20px;font-size:2rem;" class="btn btn-danger w-100 add-to-cart-btn">
-                      +
+                  <button style="border-radius:20px;" class="btn btn-danger w-100 add-to-cart-btn">
+                      Add to cart
                   </button>
                                 </div>
           </div>
@@ -1195,8 +1219,28 @@ document.querySelector('.modal-footer .btn-success').addEventListener('click', f
     return;
   }
 
-  // Here you would typically send the order to your backend
-  console.log('Order placed:', cart);
+  // Get existing orders from localStorage or initialize empty array
+  let orders = JSON.parse(localStorage.getItem('orders')) || [];
+  
+  // Create new order object
+  const newOrder = {
+    id: Date.now(), // Unique ID based on timestamp
+    date: new Date().toISOString(),
+    items: [...cart.items], // Copy of cart items
+    subtotal: cart.subtotal,
+    tax: cart.tax,
+    total: cart.total,
+    status: 'pending',
+    paymentMethod: document.querySelector('input[name="payment"]:checked').id,
+    specialInstructions: document.getElementById('specialInstructions').value
+  };
+
+  // Add new order to orders array
+  orders.push(newOrder);
+  
+  // Save updated orders array to localStorage
+  localStorage.setItem('orders', JSON.stringify(orders));
+
   alert('Order placed successfully!');
 
   // Clear the cart
@@ -1246,3 +1290,14 @@ function updateCart() {
   cart.total = cart.subtotal + cart.tax;
   updateCartCount(); // Add this line
 }
+
+function viewAllOrders() {
+  const orders = JSON.parse(localStorage.getItem('orders')) || [];
+  console.log('All stored orders:', orders);
+  return orders;
+}
+function clearAllOrders() {
+  localStorage.removeItem('orders');
+  console.log('All orders cleared from localStorage');
+}
+
