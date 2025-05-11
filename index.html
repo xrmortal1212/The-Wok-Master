@@ -32,7 +32,7 @@
               <a href="#" style="text-decoration: none;" class="link active">🍽 Menu</a>
               <a href="#" style="text-decoration: none;" class="link">🪑 Catering</a>
               <a href="#" style="text-decoration: none;" class="link">🚚 Delivery</a>
-              <a href="#" style="text-decoration: none;" class="link">📊 Accounting</a>
+              <a href="#" style="text-decoration: none;" class="link">📊 About Us</a>
               <a href="#" style="text-decoration: none;" class="link">⚙️ Settings</a>
             </div>
             <div class="profile-card d-none">
@@ -132,7 +132,7 @@
                   <i class="fas fa-bread-slice"></i>
                   <span>Sandwiches</span>
                 </div>
-                <button id="loadMoreBtn" class="btn btn-primary d-none">Load More</button>
+                <button id="loadMoreBtn" class="btn btn-danger" style="display: none;">Load More</button>
               </div>
 
 
@@ -309,15 +309,54 @@
     });
   </script>
   <script>
-    document.getElementById('loadMoreBtn').addEventListener('click', function () {
+   // script.js या index.html के <script> टैग में यह बदलाव करें
+document.addEventListener('DOMContentLoaded', function () {
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  
+  
+  if (window.innerWidth <= 992) {
+    document.querySelectorAll('.hidden-category').forEach(category => {
+      category.style.display = 'none';
+    });
+    if (loadMoreBtn) {
+      loadMoreBtn.style.display = 'block';
+      loadMoreBtn.textContent = 'Load More';
+    }
+  }
+
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', function () {
       const hiddenCategories = document.querySelectorAll('.hidden-category');
+      let allHidden = true;
+
       hiddenCategories.forEach(category => {
-        category.style.display = category.style.display === 'none' || category.style.display === '' ? 'inline-block' : 'none';
+        if (window.getComputedStyle(category).display !== 'none') {
+          allHidden = false;
+        }
       });
 
-      // Toggle button text
-      this.textContent = this.textContent === 'Load More' ? 'Show Less' : 'Load More';
+      hiddenCategories.forEach(category => {
+        category.style.display = allHidden ? 'flex' : 'none';
+      });
+
+      this.textContent = allHidden ? 'Show Less' : 'Load More';
     });
+  }
+
+  window.addEventListener('resize', function () {
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (loadMoreBtn) {
+      if (window.innerWidth <= 992) {
+        loadMoreBtn.style.display = 'block';
+      } else {
+        loadMoreBtn.style.display = 'none';
+        document.querySelectorAll('.hidden-category').forEach(category => {
+          category.style.display = 'flex';
+        });
+      }
+    }
+  });
+});
   </script>
 </body>
 
